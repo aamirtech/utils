@@ -6,10 +6,21 @@
   "author": "Aamir Khan <aamirmakofficial@gmail.com>",
   "organization": "aamir tech",
   "repository": "https://github.com/aamirtech/utils",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "bun-types": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
-  }
+  },
+  "keywords": [
+    "utils",
+    "id",
+    "generator",
+    "snowflake",
+    "otp"
+  ]
 }
