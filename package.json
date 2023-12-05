@@ -1,7 +1,11 @@
 {
   "name": "@aamirtech/utils",
-  "module": "index.ts",
-  "type": "module",
+  "version": "0.0.1",
+  "description": "Library packed with your basic code utils.",
+  "main": "dist/index.js",
+  "author": "Aamir Khan <aamirmakofficial@gmail.com>",
+  "organization": "aamir tech",
+  "repository": "https://github.com/aamirtech/utils",
   "devDependencies": {
     "bun-types": "latest"
   },
