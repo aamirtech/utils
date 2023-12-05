@@ -1,26 +1,26 @@
 {
   "name": "@aamirtech/utils",
   "version": "0.0.1",
-  "description": "Library packed with your basic code utils.",
-  "main": "dist/index.js",
   "author": "Aamir Khan <aamirmakofficial@gmail.com>",
-  "organization": "aamir tech",
   "repository": "https://github.com/aamirtech/utils",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "devDependencies": {
-    "bun-types": "latest"
-  },
+  "main": "dist/index.js",
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
+  "description": "Library packed with your basic code utils.",
   "keywords": [
     "utils",
     "id",
     "generator",
     "snowflake",
     "otp"
-  ]
+  ],
+  "license": "MIT",
+  "organization": "aamir tech",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "bun-types": "^1.0.15"
+  }
 }
