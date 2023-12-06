@@ -1,19 +1,20 @@
 {
   "name": "@aamirtech/utils",
+  "description": "Library packed with your basic code utils.",
   "version": "0.0.5",
+  "main": "dist/index.js",
   "author": "Aamir Khan <aamirmakofficial@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aamirtech/utils.git"
   },
-  "devDependencies": {
-    "bun-types": "^1.0.15"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "build": "dist/index.js",
-  "description": "Library packed with your basic code utils.",
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
   "keywords": [
     "utils",
     "id",
@@ -32,5 +33,11 @@
     "build:map": "tsc -d --declarationDir ./dist --declarationMap --emitDeclarationOnly",
     "test": "bun test",
     "test-coverage": "bun test --coverage"
+  },
+  "devDependencies": {
+    "bun-types": "^1.0.15"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
   }
 }
