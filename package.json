@@ -6,27 +6,31 @@
     "type": "git",
     "url": "git+https://github.com/aamirtech/utils.git"
   },
-  "build": "dist/index.js",
-  "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist && npm version patch"
+  "devDependencies": {
+    "bun-types": "^1.0.15"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
+  "build": "dist/index.js",
   "description": "Library packed with your basic code utils.",
-  "license": "MIT",
-  "organization": "aamir tech",
-  "publishConfig": {
-    "access": "public"
-  },
-  "devDependencies": {
-    "bun-types": "^1.0.15"
-  },
   "keywords": [
     "utils",
     "id",
     "generator",
     "snowflake",
     "otp"
-  ]
+  ],
+  "license": "MIT",
+  "organization": "aamir tech",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "bun compile && bun build:map",
+    "compile": "tsc",
+    "build:map": "tsc -d --declarationDir ./dist --declarationMap --emitDeclarationOnly",
+    "test": "bun test",
+    "test-coverage": "bun test --coverage"
+  }
 }
