@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { Snowflake } from "../src/snowflake";
+import { Snowflake } from "../src/index";
 
 describe("Snowflake", () => {
   describe("generate()", () => {
