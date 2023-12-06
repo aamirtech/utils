@@ -7,7 +7,7 @@
 [![Downloads](https://img.shields.io/npm/dm/%40aamirtech%2Futils)](https://www.npmjs.com/package/@aamirtech/utils)
 [![Npm package version](https://img.shields.io/npm/v/%40aamirtech%2Futils)](https://npmjs.com/@aamirtech/utils)
 
-Library to help you create a Snowflake Id or parse the same. This solves the problem of generating unique identifiers at scale.
+Library packed with your basic code utils.
 
 ## Installation
 
