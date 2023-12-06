@@ -6,9 +6,9 @@
     "type": "git",
     "url": "git+https://github.com/aamirtech/utils.git"
   },
-  "main": "dist/index.js",
+  "build": "dist/index.js",
   "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist"
+    "build": "bun build ./src/index.ts --outdir ./dist && npm version patch"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

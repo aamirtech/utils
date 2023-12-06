@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { Otp } from "../src";
+import { Otp } from "../src/otp";
 
 describe("Otp", () => {
   describe("numeric()", () => {

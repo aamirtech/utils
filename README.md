@@ -1,15 +1,62 @@
-# npm
+[![aamirtech](https://aamir.tech/favicon.ico)](https://aamir.tech)
 
-To install dependencies:
+# @aamirtech/utils
+
+[![GitHub license](https://img.shields.io/npm/l/%40aamirtech%2Futils)](https://github.com/aamirtech/utils/blob/master/LICENSE)
+[![Maintainer](https://img.shields.io/badge/maintainer-aamirv1-green)](https://github.com/aamirv1)
+[![Downloads](https://img.shields.io/npm/dm/%40aamirtech%2Futils)](https://www.npmjs.com/package/@aamirtech/utils)
+[![Npm package version](https://img.shields.io/npm/v/%40aamirtech%2Futils)](https://npmjs.com/@aamirtech/utils)
+
+Library to help you create a Snowflake Id or parse the same. This solves the problem of generating unique identifiers at scale.
+
+## Installation
+
+Install with npm
 
 ```bash
-bun install
+  npm install @aamirtech/utils
 ```
 
-To run:
+Install with yarn
 
 ```bash
-bun run index.ts
+  yarn add @aamirtech/utils
 ```
 
-This project was created using `bun init` in bun v1.0.15. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+Install with bun
+
+```bash
+  bun add @aamirtech/utils
+```
+
+## Usage
+
+#### Simple Snowflake Generation
+
+```javascript
+import { Snowflake } from "@aamirtech/utils";
+
+console.log(Snowflake.generate());
+// 7133860161289977856
+```
+
+#### OTP Generation
+
+```javascript
+import { Otp } from "@aamirtech/utils";
+
+console.log(Otp.numeric(6));
+// 478792478792
+
+console.log(Otp.alphabetic(6));
+// QTBRGF
+
+console.log(Otp.alphaNumeric(6));
+// 7H23JF
+```
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+The project contains part based on a fork off of (snowflake-generator)[https://github.com/FatAussieFatBoy/snowflake-generator].
