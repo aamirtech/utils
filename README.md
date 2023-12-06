@@ -45,13 +45,13 @@ console.log(Snowflake.generate());
 ```javascript
 import { Otp } from "@aamirtech/utils";
 
-console.log(Otp.numeric(6));
+console.log(Otp.generateNumeric(6));
 // 478792478792
 
-console.log(Otp.alphabetic(6));
+console.log(Otp.generateAlphabetic(6));
 // QTBRGF
 
-console.log(Otp.alphaNumeric(6));
+console.log(Otp.generateAlphaNumeric(6));
 // 7H23JF
 ```
 
