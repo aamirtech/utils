@@ -34,24 +34,24 @@ Install with bun
 #### Simple Snowflake Generation
 
 ```javascript
-import { Snowflake } from "@aamirtech/utils";
+import { Id } from "@aamirtech/utils";
 
-console.log(Snowflake.generate());
+console.log(Id.Snowflake());
 // 7133860161289977856
 ```
 
-#### OTP Generation
+#### OTP / Publid ID Generation
 
 ```javascript
-import { Otp } from "@aamirtech/utils";
+import { Id } from "@aamirtech/utils";
 
-console.log(Otp.generateNumeric(6));
-// 478792478792
+console.log(Id.Numeric(6));
+//426867
 
-console.log(Otp.generateAlphabetic(6));
+console.log(Id.Alphabetic(6));
 // QTBRGF
 
-console.log(Otp.generateAlphaNumeric(6));
+console.log(Id.AlphaNumeric(6));
 // 7H23JF
 ```
 

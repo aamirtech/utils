@@ -3,7 +3,7 @@
  * @param {number} length - The length of the output string.
  * @returns {string} - The randomly generated alphanumeric string.
  */
-function generateAlphaNumeric(length) {
+function AlphaNumeric(length) {
   const minLengthAlpha = Math.ceil(length * 0.5);
   const minLengthNum = length - minLengthAlpha;
 
@@ -46,4 +46,4 @@ function generateAlphaNumeric(length) {
   return shuffledOTP;
 }
 
-export default generateAlphaNumeric;
+export default AlphaNumeric;

@@ -3,7 +3,7 @@
  * @param {number} length - The length of the numeric output.
  * @returns {number} - The randomly generated numeric value.
  */
-function generateNumeric(length) {
+function Numeric(length) {
   const smallest = Math.pow(10, length - 1);
   const largest = Math.pow(10, length) - 1;
 
@@ -11,4 +11,4 @@ function generateNumeric(length) {
   return otp;
 }
 
-export default generateNumeric;
+export default Numeric;
