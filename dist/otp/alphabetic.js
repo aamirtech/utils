@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @param {number} length - The length of the output string.
  * @returns {string} - The randomly generated string containing alphabetic characters.
  */
-function generateAlphabetic(length) {
+function Alphabetic(length) {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let otp = "";
     for (let i = 0; i < length; i++) {
@@ -14,5 +14,5 @@ function generateAlphabetic(length) {
     }
     return otp;
 }
-exports.default = generateAlphabetic;
+exports.default = Alphabetic;
 //# sourceMappingURL=alphabetic.js.map
