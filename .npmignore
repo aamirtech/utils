@@ -3,3 +3,4 @@ coverage/
 tsconfig.json
 bun.lockb
 .gitignore
+src/
