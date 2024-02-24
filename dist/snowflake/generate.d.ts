@@ -1,6 +1,7 @@
 /**
  * Generates a Snowflake ID.
  * @returns {string} - The generated Snowflake ID.
+ * @example Snowflake.generate(); // 7133860161289977856
  */
-export default function generate(): string;
+export declare function generate(): string;
 //# sourceMappingURL=generate.d.ts.map

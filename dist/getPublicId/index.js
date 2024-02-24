@@ -9,6 +9,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 function getPublicId(length, options) {
+    length = length || 6;
     options = options || { alphabetic: true, numeric: true };
     const minLengthAlpha = options.alphabetic ? Math.ceil(length * 0.5) : 0;
     const minLengthNum = options.numeric ? length - minLengthAlpha : length;

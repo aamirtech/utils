@@ -1,26 +1,29 @@
-import { Snowflake } from "./snowflake";
+const epoch = 0;
+let sequence = 0;
+let timestamp = -1;
 
 /**
  * Generates a Snowflake ID.
  * @returns {string} - The generated Snowflake ID.
+ * @example Snowflake.generate(); // 7133860161289977856
  */
-export default function generate(): string {
-  let currentTimestamp = Date.now() - Snowflake.epoch;
 
-  if (currentTimestamp === Snowflake.timestamp) {
-    Snowflake.sequence = (Snowflake.sequence + 1) & 4095; // 4095 is the max value for 12 bits
-    if (Snowflake.sequence === 0) {
+export function generate(): string {
+  let currentTimestamp = Date.now() - epoch;
+  console.log(currentTimestamp === timestamp);
+  if (currentTimestamp === timestamp) {
+    sequence = (sequence + 1) & 4095; // 4095 is the max value for 12 bits
+    if (sequence === 0) {
       while (Date.now() <= currentTimestamp) {}
-      currentTimestamp = Date.now() - Snowflake.epoch;
+      currentTimestamp = Date.now() - epoch;
     }
   } else {
-    Snowflake.sequence = 0;
+    sequence = 0;
   }
 
-  Snowflake.timestamp = currentTimestamp;
+  timestamp = currentTimestamp;
 
-  const id =
-    (BigInt(currentTimestamp) << BigInt(22)) | BigInt(Snowflake.sequence);
+  const id = (BigInt(currentTimestamp) << BigInt(22)) | BigInt(sequence);
 
   return id.toString();
 }

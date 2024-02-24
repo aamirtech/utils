@@ -1,25 +1,30 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const snowflake_1 = require("./snowflake");
+exports.generate = void 0;
+const epoch = 0;
+let sequence = 0;
+let timestamp = -1;
 /**
  * Generates a Snowflake ID.
  * @returns {string} - The generated Snowflake ID.
+ * @example Snowflake.generate(); // 7133860161289977856
  */
 function generate() {
-    let currentTimestamp = Date.now() - snowflake_1.Snowflake.epoch;
-    if (currentTimestamp === snowflake_1.Snowflake.timestamp) {
-        snowflake_1.Snowflake.sequence = (snowflake_1.Snowflake.sequence + 1) & 4095; // 4095 is the max value for 12 bits
-        if (snowflake_1.Snowflake.sequence === 0) {
+    let currentTimestamp = Date.now() - epoch;
+    console.log(currentTimestamp === timestamp);
+    if (currentTimestamp === timestamp) {
+        sequence = (sequence + 1) & 4095; // 4095 is the max value for 12 bits
+        if (sequence === 0) {
             while (Date.now() <= currentTimestamp) { }
-            currentTimestamp = Date.now() - snowflake_1.Snowflake.epoch;
+            currentTimestamp = Date.now() - epoch;
         }
     }
     else {
-        snowflake_1.Snowflake.sequence = 0;
+        sequence = 0;
     }
-    snowflake_1.Snowflake.timestamp = currentTimestamp;
-    const id = (BigInt(currentTimestamp) << BigInt(22)) | BigInt(snowflake_1.Snowflake.sequence);
+    timestamp = currentTimestamp;
+    const id = (BigInt(currentTimestamp) << BigInt(22)) | BigInt(sequence);
     return id.toString();
 }
-exports.default = generate;
+exports.generate = generate;
 //# sourceMappingURL=generate.js.map

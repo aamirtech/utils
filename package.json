@@ -31,10 +31,10 @@
     "compile": "tsc",
     "build:map": "tsc -d --declarationDir ./dist --declarationMap --emitDeclarationOnly",
     "test": "bun test",
-    "test-coverage": "bun test --coverage"
+    "test:coverage": "bun test --coverage"
   },
   "devDependencies": {
-    "bun-types": "^1.0.15"
+    "@types/bun": "^1.0.7"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

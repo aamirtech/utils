@@ -1,9 +1,4 @@
-import generate from "./snowflake/generate";
-import isValid from "./snowflake/isValid";
+import * as Snowflake from "./snowflake";
 import getPublicId from "./getPublicId";
 
-export const Id = {
-  Snowflake: generate,
-  IsValidSnowflake: isValid,
-  getPublicId,
-};
+export { Snowflake, getPublicId };

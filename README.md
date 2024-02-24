@@ -36,23 +36,46 @@ Install with bun
 ```javascript
 import { Id } from "@aamirtech/utils";
 
-console.log(Id.Snowflake());
-// 7133860161289977856
+console.log(Snowflake.generate());
+// 7167216930510602240
 ```
 
-#### OTP / Publid ID Generation
+#### Publid ID / OTP Generation
+
+| Option     | Type    | Default | Description                        |
+| ---------- | ------- | ------- | ---------------------------------- |
+| length     | number  | 6       | Length of the public id            |
+| alphabetic | boolean | true    | Include alphabets in the public id |
+| numeric    | boolean | true    | Include numbers in the public id   |
 
 ```javascript
-import { Id } from "@aamirtech/utils";
+import { getPublicId } from "@aamirtech/utils";
 
-console.log(Id.Numeric(6));
-//426867
+// Mix of Alphabets and Numbers (default)
+console.log(getPublicId(6));
+// 7C43DU
 
-console.log(Id.Alphabetic(6));
-// QTBRGF
+// Alphabets only
+console.log(getPublicId(6, { alphabetic: true }));
+// FZPUWJ
 
-console.log(Id.AlphaNumeric(6));
-// 7H23JF
+// Numbers only
+console.log(getPublicId(6, { numeric: true }));
+// 252537
+```
+
+## Tests
+
+Tests are written in Bun Test. To run tests, run the following command:
+
+```bash
+  bun test
+```
+
+To run tests with coverage, run the following command:
+
+````bash
+  bun test:coverage
 ```
 
 ## License
@@ -60,3 +83,4 @@ console.log(Id.AlphaNumeric(6));
 [MIT](https://choosealicense.com/licenses/mit/)
 
 The project contains part based on a fork off of (snowflake-generator)[https://github.com/FatAussieFatBoy/snowflake-generator].
+````

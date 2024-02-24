@@ -6,7 +6,7 @@
  * @param {boolean} options.alphabetic - Whether to include alphabetic characters in the public ID. Default is true.
  * @returns {string} - The randomly generated public ID.
  */
-declare function getPublicId(length: number, options?: {
+declare function getPublicId(length?: number, options?: {
     numeric?: boolean;
     alphabetic?: boolean;
 }): string;

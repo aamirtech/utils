@@ -1,9 +1,4 @@
-import generate from "./snowflake/generate";
-import isValid from "./snowflake/isValid";
+import * as Snowflake from "./snowflake";
 import getPublicId from "./getPublicId";
-export declare const Id: {
-    Snowflake: typeof generate;
-    IsValidSnowflake: typeof isValid;
-    getPublicId: typeof getPublicId;
-};
+export { Snowflake, getPublicId };
 //# sourceMappingURL=index.d.ts.map

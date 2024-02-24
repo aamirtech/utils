@@ -8,9 +8,10 @@
  */
 
 function getPublicId(
-  length: number,
+  length?: number,
   options?: { numeric?: boolean; alphabetic?: boolean }
 ) {
+  length = length || 6;
   options = options || { alphabetic: true, numeric: true };
 
   const minLengthAlpha = options.alphabetic ? Math.ceil(length * 0.5) : 0;
