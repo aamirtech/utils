@@ -74,7 +74,7 @@ Tests are written in Bun Test. To run tests, run the following command:
 
 To run tests with coverage, run the following command:
 
-````bash
+```bash
   bun test:coverage
 ```
 
@@ -83,4 +83,7 @@ To run tests with coverage, run the following command:
 [MIT](https://choosealicense.com/licenses/mit/)
 
 The project contains part based on a fork off of (snowflake-generator)[https://github.com/FatAussieFatBoy/snowflake-generator].
-````
+
+```
+
+```
