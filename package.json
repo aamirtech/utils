@@ -3,10 +3,23 @@
   "description": "Library packed with your basic code utils.",
   "version": "0.1.0",
   "main": "dist/index.js",
+  "scripts": {
+    "build": "bun compile && bun build:map",
+    "compile": "rm -rf node_modules && tsc",
+    "build:map": "tsc -d --declarationDir ./dist --declarationMap --emitDeclarationOnly",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage"
+  },
   "author": "Aamir Khan <aamirmakofficial@gmail.com>",
+  "homepage": "https://aamir.tech/utils",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aamirtech/utils.git"
+  },
+  "license": "MIT",
+  "organization": "aamir tech",
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "dist",
@@ -21,17 +34,8 @@
     "snowflake",
     "otp"
   ],
-  "license": "MIT",
-  "organization": "aamir tech",
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "build": "bun compile && bun build:map",
-    "compile": "tsc",
-    "build:map": "tsc -d --declarationDir ./dist --declarationMap --emitDeclarationOnly",
-    "test": "bun test",
-    "test:coverage": "bun test --coverage"
+  "bugs": {
+    "url": "https://github.com/aamirtech/utils/issues"
   },
   "devDependencies": {
     "@types/bun": "^1.0.7"

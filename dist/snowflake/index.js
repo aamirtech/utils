@@ -1,18 +1,29 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./generate"), exports);
+exports.generate = void 0;
+const epoch = 0;
+let sequence = 0;
+let timestamp = -1;
+/**
+ * Generates a Snowflake ID.
+ * @returns {string} - The generated Snowflake ID.
+ * @example Snowflake.generate(); // 7133860161289977856
+ */
+function generate() {
+    let currentTimestamp = Date.now() - epoch;
+    if (currentTimestamp === timestamp) {
+        sequence = (sequence + 1) & 4095; // 4095 is the max value for 12 bits
+        if (sequence === 0) {
+            while (Date.now() <= currentTimestamp) { }
+            currentTimestamp = Date.now() - epoch;
+        }
+    }
+    else {
+        sequence = 0;
+    }
+    timestamp = currentTimestamp;
+    const id = (BigInt(currentTimestamp) << BigInt(22)) | BigInt(sequence);
+    return id.toString();
+}
+exports.generate = generate;
 //# sourceMappingURL=index.js.map

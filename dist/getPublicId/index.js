@@ -1,18 +1,32 @@
 "use strict";
 /**
  * Generates a random public ID of the specified length.
- * @param {number} length - The length of the public ID.
- * @param {Object} options - The options for generating the public ID.
- * @param {boolean} options.numeric - Whether to include numeric characters in the public ID. Default is true.
- * @param {boolean} options.alphabetic - Whether to include alphabetic characters in the public ID. Default is true.
+ * @param {number} length - The length of the public ID (minimum 6 to ensure uniqueness).
+ * @param {boolean} numeric - Whether to include numeric characters in the public ID. Default is true.
+ * @param {boolean} alphabetic - Whether to include alphabetic characters in the public ID. Default is true.
  * @returns {string} - The randomly generated public ID.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-function getPublicId(length, options) {
-    length = length || 6;
-    options = options || { alphabetic: true, numeric: true };
-    const minLengthAlpha = options.alphabetic ? Math.ceil(length * 0.5) : 0;
-    const minLengthNum = options.numeric ? length - minLengthAlpha : length;
+const getPublicId = ({ length = 6, numeric, alphabetic, } = {}) => {
+    if (length < 6) {
+        throw new Error("The length of the public ID cannot be less than 6 to ensure uniqueness.");
+    }
+    if (typeof alphabetic === "undefined" && typeof numeric === "undefined") {
+        alphabetic = true;
+        numeric = false;
+    }
+    if (alphabetic === undefined || numeric === undefined) {
+        if (typeof numeric === "undefined" && !alphabetic) {
+            alphabetic = false;
+            numeric = true;
+        }
+        if (typeof alphabetic === "undefined" && !numeric) {
+            alphabetic = true;
+            numeric = false;
+        }
+    }
+    const minLengthAlpha = alphabetic ? Math.ceil(length * 0.5) : 0;
+    const minLengthNum = numeric ? length - minLengthAlpha : length;
     const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const numbers = "0123456789";
     /**
@@ -30,7 +44,7 @@ function getPublicId(length, options) {
     for (let i = 0; i < length; i++) {
         if ((countAlpha < minLengthAlpha || countNum >= minLengthNum) &&
             countAlpha < length * 0.8) {
-            if (options.alphabetic) {
+            if (alphabetic) {
                 otp += getRandomChar(alphabets);
                 countAlpha++;
             }
@@ -40,7 +54,7 @@ function getPublicId(length, options) {
             }
         }
         else {
-            if (options.numeric) {
+            if (numeric) {
                 otp += getRandomChar(numbers);
                 countNum++;
             }
@@ -55,6 +69,6 @@ function getPublicId(length, options) {
         .sort(() => Math.random() - 0.5)
         .join("");
     return shuffledOTP;
-}
+};
 exports.default = getPublicId;
 //# sourceMappingURL=index.js.map
