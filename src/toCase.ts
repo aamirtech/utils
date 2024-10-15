@@ -67,7 +67,7 @@ const toCamelCase_ = (str: string, isUpperCamelCase: boolean) => {
  * @example
  * toCamelCase("hello_world"); // "helloWorld"
  */
-export const toCamelCase = (str) => toCamelCase_(str, false);
+export const toCamelCase = (str: string) => toCamelCase_(str, false);
 
 /**
  * Converts a given string to PascalCase format.
@@ -78,7 +78,7 @@ export const toCamelCase = (str) => toCamelCase_(str, false);
  * toPascalCase("hello_world"); // "HelloWorld"
  */
 
-export const toPascalCase = (str) => toCamelCase_(str, true);
+export const toPascalCase = (str: string) => toCamelCase_(str, true);
 
 /**
  * Converts a given string to snake_case format.
@@ -89,7 +89,7 @@ export const toPascalCase = (str) => toCamelCase_(str, true);
  * toSnakeCase("hello World"); // "hello_world"
  */
 
-export const toSnakeCase = (str) => toSpecialCase_(str, "_");
+export const toSnakeCase = (str: string) => toSpecialCase_(str, "_");
 
 /**
  * Converts a given string to kebab-case format.
@@ -100,4 +100,4 @@ export const toSnakeCase = (str) => toSpecialCase_(str, "_");
  * toKebabCase("hello World"); // "hello-world"
  */
 
-export const toKebabCase = (str) => toSpecialCase_(str, "-");
+export const toKebabCase = (str: string) => toSpecialCase_(str, "-");

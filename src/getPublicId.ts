@@ -44,7 +44,7 @@ export const getPublicId = (
    * @param {string} characters - The set of characters to choose from.
    * @returns {string} - The randomly selected character.
    */
-  const getRandomChar = (characters) => {
+  const getRandomChar = (characters: string) => {
     const index = Math.floor(Math.random() * characters.length);
     return characters[index];
   };
