@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import getPublicId from "../src/getPublicId";
+import { getPublicId } from "../src/getPublicId";
 
 describe("getPublicId", () => {
   describe("with default options", () => {

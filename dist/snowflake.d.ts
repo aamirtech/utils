@@ -3,4 +3,8 @@
  * @returns {string} - The generated Snowflake ID.
  * @example Snowflake.generate(); // 7133860161289977856
  */
-export declare function generate(): string;
+declare function generate(): string;
+export declare const Snowflake: {
+    generate: typeof generate;
+};
+export {};

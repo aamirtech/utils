@@ -1,1 +1,1 @@
-export declare const GetInitials2: (name: string) => string;
+export declare const GetInitials: (name: string) => string;

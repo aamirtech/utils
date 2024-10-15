@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generate = void 0;
+exports.Snowflake = void 0;
 const epoch = 0;
 let sequence = 0;
 let timestamp = -1;
@@ -25,5 +25,7 @@ function generate() {
     const id = (BigInt(currentTimestamp) << BigInt(22)) | BigInt(sequence);
     return id.toString();
 }
-exports.generate = generate;
+exports.Snowflake = {
+    generate,
+};
 //# sourceMappingURL=snowflake.js.map

@@ -11,6 +11,7 @@ const toTitleCase = (str) => str
 exports.toTitleCase = toTitleCase;
 const toSpecialCase_ = (str, separator) => {
     return (str
+        .toLowerCase()
         .split("")
         .map((letter) => {
         if (/[-_\s.]/.test(letter)) {
@@ -30,7 +31,9 @@ const toSpecialCase_ = (str, separator) => {
         .replace(new RegExp(separator + "$"), ""));
 };
 const toCamelCase_ = (str, isUpperCamelCase) => {
-    str = str.replace(/[-_\s.]+(.)?/g, (...args) => args[1] ? args[1].toUpperCase() : "");
+    str = str
+        .toLocaleLowerCase()
+        .replace(/[-_\s.]+(.)?/g, (...args) => args[1] ? args[1].toUpperCase() : "");
     return ((isUpperCamelCase
         ? str.substr(0, 1).toUpperCase()
         : str.substr(0, 1).toLowerCase()) + str.substr(1));

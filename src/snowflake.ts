@@ -8,7 +8,7 @@ let timestamp = -1;
  * @example Snowflake.generate(); // 7133860161289977856
  */
 
-export function generate(): string {
+function generate(): string {
   let currentTimestamp = Date.now() - epoch;
 
   if (currentTimestamp === timestamp) {
@@ -27,3 +27,7 @@ export function generate(): string {
 
   return id.toString();
 }
+
+export const Snowflake = {
+  generate,
+};

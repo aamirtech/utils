@@ -5,8 +5,7 @@
  * @param {boolean} alphabetic - Whether to include alphabetic characters in the public ID. Default is true.
  * @returns {string} - The randomly generated public ID.
  */
-declare const getPublicId: (length?: number, { numeric, alphabetic }?: {
+export declare const getPublicId: (length?: number, { numeric, alphabetic }?: {
     numeric?: boolean;
     alphabetic?: boolean;
 }) => string;
-export default getPublicId;

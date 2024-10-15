@@ -6,7 +6,7 @@
  * @returns {string} - The randomly generated public ID.
  */
 
-const getPublicId = (
+export const getPublicId = (
   length: number = 6,
   { numeric, alphabetic }: { numeric?: boolean; alphabetic?: boolean } = {}
 ) => {
@@ -84,5 +84,3 @@ const getPublicId = (
 
   return shuffledOTP;
 };
-
-export default getPublicId;
