@@ -15,7 +15,7 @@
 export const getPublicId = (
   length: number = 6,
   { numeric, alphabetic }: { numeric?: boolean; alphabetic?: boolean } = {}
-) => {
+): string => {
   if (typeof alphabetic === "undefined" && typeof numeric === "undefined") {
     alphabetic = true;
     numeric = true;

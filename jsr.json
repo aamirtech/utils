@@ -1,0 +1,5 @@
+{
+  "name": "@aamirtech/utils",
+  "version": "0.1.4",
+  "exports": "./src/index.ts"
+}

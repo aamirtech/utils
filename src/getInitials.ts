@@ -8,7 +8,7 @@
  * GetInitials("John Doe"); // returns "JD"
  */
 
-export const GetInitials = (name: string) => {
+export const GetInitials = (name: string): string => {
   const parts = name.trim().replace("-", " ").replace("_", " ").split(/\s+/);
   return (
     (parts[0]?.[0] ?? "").toUpperCase() +
