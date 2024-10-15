@@ -1,3 +1,13 @@
+/**
+ * Extracts the initials from a given name.
+ *
+ * @param {string} name - The name to process.
+ * @returns {string} The initials in uppercase, or an empty string if the input is invalid.
+ *
+ * @example
+ * GetInitials("John Doe"); // returns "JD"
+ */
+
 export const GetInitials = (name: string) => {
   const parts = name.trim().replace("-", " ").replace("_", " ").split(/\s+/);
   return (
@@ -5,5 +15,3 @@ export const GetInitials = (name: string) => {
     (parts[parts.length - 1]?.[0] ?? "").toUpperCase()
   );
 };
-
-console.log(GetInitials("Aamir O'Khan"));

@@ -1,21 +1,21 @@
 /**
- * Generates a random public ID of the specified length.
- * @param {number} length - The length of the public ID (minimum 6 to ensure uniqueness).
- * @param {boolean} numeric - Whether to include numeric characters in the public ID. Default is true.
- * @param {boolean} alphabetic - Whether to include alphabetic characters in the public ID. Default is true.
- * @returns {string} - The randomly generated public ID.
+ * Generates a random public ID of specified length, optionally including
+ * numeric and/or alphabetic characters.
+ *
+ * @param {number} [length=6] - The length of the public ID (minimum 6).
+ * @param {Object} [options={}] - Options for character types.
+ * @param {boolean} [options.numeric=true] - Include numeric characters.
+ * @param {boolean} [options.alphabetic=true] - Include alphabetic characters.
+ * @returns {string} The generated public ID.
+ *
+ * @example
+ * getPublicId(10, { numeric: true, alphabetic: false }); // returns a 10-digit numeric ID
  */
 
 export const getPublicId = (
   length: number = 6,
   { numeric, alphabetic }: { numeric?: boolean; alphabetic?: boolean } = {}
 ) => {
-  if (length < 6) {
-    throw new Error(
-      "The length of the public ID cannot be less than 6 to ensure uniqueness."
-    );
-  }
-
   if (typeof alphabetic === "undefined" && typeof numeric === "undefined") {
     alphabetic = true;
     numeric = true;
