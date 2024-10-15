@@ -26,4 +26,4 @@ function generate() {
     return id.toString();
 }
 exports.generate = generate;
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=snowflake.js.map

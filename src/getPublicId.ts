@@ -6,11 +6,10 @@
  * @returns {string} - The randomly generated public ID.
  */
 
-const getPublicId = ({
-  length = 6,
-  numeric,
-  alphabetic,
-}: { length?: number; numeric?: boolean; alphabetic?: boolean } = {}) => {
+const getPublicId = (
+  length: number = 6,
+  { numeric, alphabetic }: { numeric?: boolean; alphabetic?: boolean } = {}
+) => {
   if (length < 6) {
     throw new Error(
       "The length of the public ID cannot be less than 6 to ensure uniqueness."
@@ -19,7 +18,7 @@ const getPublicId = ({
 
   if (typeof alphabetic === "undefined" && typeof numeric === "undefined") {
     alphabetic = true;
-    numeric = false;
+    numeric = true;
   }
 
   if (alphabetic === undefined || numeric === undefined) {

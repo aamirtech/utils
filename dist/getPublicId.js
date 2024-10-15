@@ -7,13 +7,13 @@
  * @returns {string} - The randomly generated public ID.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-const getPublicId = ({ length = 6, numeric, alphabetic, } = {}) => {
+const getPublicId = (length = 6, { numeric, alphabetic } = {}) => {
     if (length < 6) {
         throw new Error("The length of the public ID cannot be less than 6 to ensure uniqueness.");
     }
     if (typeof alphabetic === "undefined" && typeof numeric === "undefined") {
         alphabetic = true;
-        numeric = false;
+        numeric = true;
     }
     if (alphabetic === undefined || numeric === undefined) {
         if (typeof numeric === "undefined" && !alphabetic) {
@@ -71,4 +71,4 @@ const getPublicId = ({ length = 6, numeric, alphabetic, } = {}) => {
     return shuffledOTP;
 };
 exports.default = getPublicId;
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=getPublicId.js.map

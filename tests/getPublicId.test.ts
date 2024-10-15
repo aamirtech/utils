@@ -11,7 +11,7 @@ describe("getPublicId", () => {
 
     it("should contain alphabetic and numeric characters", () => {
       const length = 10; // Change the desired length
-      const result = getPublicId({ length });
+      const result = getPublicId(length);
       expect(result).toMatch(/^[A-Z0-9]+$/);
       expect(result).toHaveLength(length);
     });
@@ -20,7 +20,7 @@ describe("getPublicId", () => {
   describe("with alphabetic option only", () => {
     it("should generate a public ID with only alphabetic characters", () => {
       const length = 10; // Change the desired length
-      const result = getPublicId({ length, alphabetic: true });
+      const result = getPublicId(length, { alphabetic: true });
       expect(result).toBeString();
       expect(result).toMatch(/^[A-Z]+$/);
       expect(result).toHaveLength(length);
@@ -30,7 +30,7 @@ describe("getPublicId", () => {
   describe("with numeric option only", () => {
     it("should generate a public ID with only numeric characters", () => {
       const length = 10; // Change the desired length
-      const result = getPublicId({ length, numeric: true });
+      const result = getPublicId(length, { numeric: true });
       expect(result).toBeString();
       expect(result).toMatch(/^[0-9]+$/);
       expect(result).toHaveLength(length);
@@ -40,7 +40,7 @@ describe("getPublicId", () => {
   describe("with custom options", () => {
     it("should generate a public ID with specified length and character types", () => {
       const length = 10; // Change the desired length
-      const result = getPublicId({ length });
+      const result = getPublicId(length);
       expect(result).toBeString();
       expect(result).toMatch(/^[A-Z0-9]+$/);
       expect(result).toHaveLength(length);

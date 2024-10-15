@@ -1,32 +1,29 @@
 {
   "name": "@aamirtech/utils",
-  "description": "Library packed with your basic code utils.",
-  "version": "0.2.0",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "bun compile && bun build:map",
-    "compile": "rm -rf node_modules && tsc",
-    "build:map": "tsc -d --declarationDir ./dist --declarationMap --emitDeclarationOnly",
-    "test": "bun test",
-    "test:coverage": "bun test --coverage"
-  },
+  "version": "0.1.1",
   "author": "Aamir Khan <aamirmakofficial@gmail.com>",
-  "homepage": "https://aamir.tech/utils",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aamirtech/utils.git"
   },
-  "license": "MIT",
-  "organization": "aamir tech",
-  "publishConfig": {
-    "access": "public"
+  "main": "dist/index.js",
+  "devDependencies": {
+    "@types/bun": "^1.0.7"
   },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/aamirtech/utils/issues"
+  },
+  "description": "Library packed with your basic code utils.",
   "files": [
     "dist",
     "LICENSE",
     "package.json",
     "README.md"
   ],
+  "homepage": "https://aamir.tech/utils",
   "keywords": [
     "utils",
     "id",
@@ -34,13 +31,16 @@
     "snowflake",
     "otp"
   ],
-  "bugs": {
-    "url": "https://github.com/aamirtech/utils/issues"
+  "license": "MIT",
+  "organization": "aamir tech",
+  "publishConfig": {
+    "access": "public"
   },
-  "devDependencies": {
-    "@types/bun": "^1.0.7"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+  "scripts": {
+    "build": "bun compile && bun build:map",
+    "compile": "rm -rf node_modules && bun run tsc",
+    "build:map": "tsc -d --declarationDir ./dist --declarationMap --emitDeclarationOnly",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage"
   }
 }

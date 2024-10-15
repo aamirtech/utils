@@ -4,4 +4,3 @@
  * @example Snowflake.generate(); // 7133860161289977856
  */
 export declare function generate(): string;
-//# sourceMappingURL=index.d.ts.map
