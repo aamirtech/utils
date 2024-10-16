@@ -1,22 +1,31 @@
 {
   "name": "@aamirtech/utils",
-  "version": "0.1.4",
+  "description": "Library packed with your basic code utils.",
+  "license": "MIT",
+  "organization": "aamir tech",
+  "version": "0.1.5",
   "author": "Aamir Khan <aamirmakofficial@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aamirtech/utils.git"
   },
   "main": "dist/index.js",
-  "devDependencies": {
-    "@types/bun": "^1.0.7"
+  "scripts": {
+    "build": "bun compile && bun build:map",
+    "compile": "rm -rf node_modules && bun run tsc",
+    "build:map": "tsc -d --declarationDir ./dist --declarationMap --emitDeclarationOnly",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage"
   },
-  "peerDependencies": {
-    "typescript": "^5.6.3"
+  "publishConfig": {
+    "access": "public"
   },
   "bugs": {
     "url": "https://github.com/aamirtech/utils/issues"
   },
-  "description": "Library packed with your basic code utils.",
+  "devDependencies": {
+    "@types/bun": "^1.0.7"
+  },
   "files": [
     "dist",
     "LICENSE",
@@ -30,17 +39,5 @@
     "generator",
     "snowflake",
     "otp"
-  ],
-  "license": "MIT",
-  "organization": "aamir tech",
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "build": "bun compile && bun build:map",
-    "compile": "rm -rf node_modules && bun run tsc",
-    "build:map": "tsc -d --declarationDir ./dist --declarationMap --emitDeclarationOnly",
-    "test": "bun test",
-    "test:coverage": "bun test --coverage"
-  }
+  ]
 }
