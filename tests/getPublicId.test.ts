@@ -37,6 +37,36 @@ describe("getPublicId", () => {
     });
   });
 
+  describe("with numeric undefined and alphabetic false", () => {
+    it("should generate a public ID with only numeric characters", () => {
+      const length = 10; // Change the desired length
+      const result = getPublicId(length, { alphabetic: false });
+      expect(result).toBeString();
+      expect(result).toMatch(/^[0-9]+$/);
+      expect(result).toHaveLength(length);
+    });
+  });
+
+  describe("with alphabetic undefined and numeric false", () => {
+    it("should generate a public ID with only alphabetic characters", () => {
+      const length = 10; // Change the desired length
+      const result = getPublicId(length, { numeric: false });
+      expect(result).toBeString();
+      expect(result).toMatch(/^[A-Z]+$/);
+      expect(result).toHaveLength(length);
+    });
+  });
+
+  describe("with alphabetic and numeric false", () => {
+    it("should generate a public ID with only alphabetic characters", () => {
+      const length = 10; // Change the desired length
+      const result = getPublicId(length, { numeric: false, alphabetic: false });
+      expect(result).toBeString();
+      expect(result).toMatch(/^[A-Z0-9]+$/);
+      expect(result).toHaveLength(length);
+    });
+  });
+
   describe("with custom options", () => {
     it("should generate a public ID with specified length and character types", () => {
       const length = 10; // Change the desired length

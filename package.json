@@ -3,7 +3,7 @@
   "description": "Library packed with your basic code utils.",
   "license": "MIT",
   "organization": "aamir tech",
-  "version": "0.1.5",
+  "version": "0.1.1",
   "author": "Aamir Khan <aamirmakofficial@gmail.com>",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "scripts": {
     "build": "bun compile && bun build:map",
     "compile": "rm -rf node_modules && bun run tsc",
-    "build:map": "tsc -d --declarationDir ./dist --declarationMap --emitDeclarationOnly",
+    "build:map": "tsc -d --declarationDir ./dist ",
     "test": "bun test",
     "test:coverage": "bun test --coverage"
   },
@@ -24,7 +24,7 @@
     "url": "https://github.com/aamirtech/utils/issues"
   },
   "devDependencies": {
-    "@types/bun": "^1.0.7"
+    "@types/bun": "^1.1.14"
   },
   "files": [
     "dist",

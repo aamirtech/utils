@@ -11,76 +11,34 @@
  * @example
  * getPublicId(10, { numeric: true, alphabetic: false }); // returns a 10-digit numeric ID
  */
-
 export const getPublicId = (
   length: number = 6,
   { numeric, alphabetic }: { numeric?: boolean; alphabetic?: boolean } = {}
 ): string => {
-  if (typeof alphabetic === "undefined" && typeof numeric === "undefined") {
-    alphabetic = true;
-    numeric = true;
-  }
+  alphabetic =
+    typeof alphabetic === "undefined" && numeric
+      ? false
+      : typeof alphabetic === "undefined" && !numeric
+      ? true
+      : !!alphabetic;
 
-  if (alphabetic === undefined || numeric === undefined) {
-    if (typeof numeric === "undefined" && !alphabetic) {
-      alphabetic = false;
-      numeric = true;
-    }
+  numeric =
+    typeof numeric === "undefined" && alphabetic
+      ? false
+      : typeof numeric === "undefined" && !alphabetic
+      ? true
+      : !!numeric;
 
-    if (typeof alphabetic === "undefined" && !numeric) {
-      alphabetic = true;
-      numeric = false;
-    }
-  }
+  let result = "";
+  let characters = "";
 
-  const minLengthAlpha = alphabetic ? Math.ceil(length * 0.5) : 0;
-  const minLengthNum = numeric ? length - minLengthAlpha : length;
-
-  const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const numbers = "0123456789";
-
-  /**
-   * Generates a random character from the given set of characters.
-   * @param {string} characters - The set of characters to choose from.
-   * @returns {string} - The randomly selected character.
-   */
-  const getRandomChar = (characters: string) => {
-    const index = Math.floor(Math.random() * characters.length);
-    return characters[index];
-  };
-
-  let otp = "";
-
-  let countAlpha = 0;
-  let countNum = 0;
+  if (numeric) characters += "0123456789";
+  if (alphabetic) characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  if (!characters) characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   for (let i = 0; i < length; i++) {
-    if (
-      (countAlpha < minLengthAlpha || countNum >= minLengthNum) &&
-      countAlpha < length * 0.8
-    ) {
-      if (alphabetic) {
-        otp += getRandomChar(alphabets);
-        countAlpha++;
-      } else {
-        otp += getRandomChar(numbers);
-        countNum++;
-      }
-    } else {
-      if (numeric) {
-        otp += getRandomChar(numbers);
-        countNum++;
-      } else {
-        otp += getRandomChar(alphabets);
-        countAlpha++;
-      }
-    }
+    result += characters[Math.floor(Math.random() * characters.length)];
   }
 
-  const shuffledOTP = otp
-    .split("")
-    .sort(() => Math.random() - 0.5)
-    .join("");
-
-  return shuffledOTP;
+  return result;
 };
